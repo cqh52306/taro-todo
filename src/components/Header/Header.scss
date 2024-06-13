@@ -1,0 +1,28 @@
+// src/components/Header/Header.scss
+.header {
+  // position: fixed;
+  // top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  .menu-button {
+    width: 44px;
+    margin-right: 10px; /* 调整按钮右边距 */
+  }
+
+  .title {
+    flex: 1; /* 让标题文本占据剩余空间 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-right: 54px;
+  }
+}

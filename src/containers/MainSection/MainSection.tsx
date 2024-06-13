@@ -3,7 +3,7 @@ import { View } from "@tarojs/components";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as TodoActions from "../../actions";
+import * as TodoActions from "../../store/actions";
 import Footer from "../../components/Footer/Footer";
 import TodoList from "../TodoList/TodoList";
 import { getCompletedTodoCount } from "../../selectors";

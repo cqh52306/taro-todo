@@ -5,7 +5,7 @@ import {
   COMPLETE_TODO,
   COMPLETE_ALL_TODOS,
   CLEAR_COMPLETED,
-} from "../constants/ActionTypes";
+} from "../../constants/ActionTypes";
 
 // 定义 Todo 对象的接口
 interface Todo {

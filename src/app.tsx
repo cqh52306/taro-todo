@@ -1,28 +1,42 @@
-import { Component, PropsWithChildren } from 'react'
-import { Provider } from 'react-redux'
+// src/app.tsx
+import { Component, PropsWithChildren } from 'react';
+import { Provider } from 'react-redux';
+import { View } from '@tarojs/components';
+import configStore from './store';
+import './reset.scss';
+import './app.scss';
+import Sidebar from './components/Sidebar/Sidebar';
+import Header from './components/Header/Header';
 
-import configStore from './store'
+const store = configStore();
 
-import './app.scss'
+class App extends Component<PropsWithChildren> {
+  state = {
+    isSidebarOpen: false,
+  };
 
-const store = configStore()
+  toggleSidebar = () => {
+    this.setState((prevState:any) => ({
+      isSidebarOpen: !prevState.isSidebarOpen,
+    }));
+  };
 
-class App extends Component<PropsWithChildren>  {
-  componentDidMount () {}
+  closeSidebar = () => {
+    this.setState({ isSidebarOpen: false });
+  };
 
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  // 在 App 类中的 render() 函数没有实际作用
-  // 请勿修改此函数
-  render () {
+  render() {
+    const { isSidebarOpen } = this.state;
     return (
       <Provider store={store}>
-        {this.props.children}
+        <Header onToggleSidebar={this.toggleSidebar} />
+        <Sidebar isOpen={isSidebarOpen} onClose={this.closeSidebar} />
+        <View className="page-content">
+          {this.props.children}
+        </View>
       </Provider>
-    )
+    );
   }
 }
 
-export default App
+export default App;

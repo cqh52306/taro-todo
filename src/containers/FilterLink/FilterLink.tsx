@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from '@tarojs/components';
 import classnames from 'classnames';
 
-import { setVisibilityFilter } from '../../actions';
+import { setVisibilityFilter } from '../../store/actions';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../../constants/TodoFilters';
 
 import './FilterLink.scss';

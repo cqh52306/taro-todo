@@ -1,7 +1,6 @@
 import React, { Component } from 'react';  
 import { View } from '@tarojs/components';  
   
-import Header from '../../containers/Header/Header';  
 import MainSection from '../../containers/MainSection/MainSection';  
   
 import './index.scss';  
@@ -33,7 +32,6 @@ class Index extends Component<IndexProps> {
   render() {  
     return (  
       <View className='todaoapp'>  
-        <Header />  
         <MainSection />  
       </View>  
     );  

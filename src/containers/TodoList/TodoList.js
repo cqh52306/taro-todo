@@ -1,35 +1,31 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { View } from '@tarojs/components'
-import { bindActionCreators } from 'redux'
+import React from "react";
+import { connect } from "react-redux";
+import { View } from "@tarojs/components";
+import { bindActionCreators } from "redux";
 
-import TodoItem from '../../components/TodoItem/TodoItem'
+import TodoItem from "../../components/TodoItem/TodoItem";
 
-import * as TodoActions from '../../actions'
-import { getVisibleTodos } from '../../selectors'
+import * as TodoActions from "../../store/actions";
+import { getVisibleTodos } from "../../selectors";
 
-import './TodoList.scss'
+import "./TodoList.scss";
 
-const mapStateToProps = state => ({
-  filteredTodos: getVisibleTodos(state)
-})
+const mapStateToProps = (state) => ({
+  filteredTodos: getVisibleTodos(state),
+});
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(TodoActions, dispatch)
-})
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(TodoActions, dispatch),
+});
 
-
-@connect(
-  mapStateToProps,
-  mapDispatchToProps
-)
+@connect(mapStateToProps, mapDispatchToProps)
 class TodoList extends React.Component {
-  render () {
-    const { filteredTodos } = this.props
-    console.log(filteredTodos)
+  render() {
+    const { filteredTodos } = this.props;
+    console.log(filteredTodos);
     return (
-      <View className='todo-list'>
-        {filteredTodos.map((todo) =>
+      <View className="todo-list">
+        {filteredTodos.map((todo) => (
           <TodoItem
             key={todo.id}
             todo={todo}
@@ -37,10 +33,10 @@ class TodoList extends React.Component {
             onEditTodo={this.props.actions.editTodo}
             onCompleteTodo={this.props.actions.completeTodo}
           />
-        )}
+        ))}
       </View>
-    )
+    );
   }
 }
 
-export default TodoList
+export default TodoList;
